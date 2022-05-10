@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ChooseFile.cpp" />
     <ClCompile Include="Filesys.cpp" />
     <ClCompile Include="Unzipper.cpp" />
     <ClCompile Include="Funcs.cpp" />
@@ -147,6 +148,7 @@
     <ClCompile Include="Zipper.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ChooseFile.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Filesys.h" />
     <ClInclude Include="Funcs.h" />

@@ -13,4 +13,3 @@ public:
 	Unzipper(string pathIn) :Entity(pathIn) {};
 	void decompress(string pathOut);
 };
-

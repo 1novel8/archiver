@@ -19,7 +19,7 @@ void Funcs::readFile(const string& filename, vector<int>& weight) {
 		return;
 	}
 
-	cout << "Reading file " << filename << ": " << endl;
+	//cout << "Reading file " << filename << ": " << endl;
 	int i = 0;
 	while (true) {
 
@@ -33,7 +33,7 @@ void Funcs::readFile(const string& filename, vector<int>& weight) {
 		int value = i * 100.0 / filesize;
 		//cout << "\r" << value << "%" << flush;
 	}
-	cout << endl;
+	//cout << endl;
 	//for (int i = 0; i < weight.size(); i++) {
 	//	if (weight[i] != 0)
 	//		//cout << "[" << i << "] = " << weight[i] << ", \t" << " \n"[i == weight.size() - 1];
@@ -111,7 +111,7 @@ void Funcs::writeFile(const string& fileOut, vector<int>& weight, const queue_t 
 		return;
 	}
 	
-	uchar count = count_if(weight.begin(), weight.end(), [](const int& value) {return value != 0; });
+	int count = count_if(weight.begin(), weight.end(), [](const int& value) {return value != 0; });
 	out.write(reinterpret_cast<char*>(&count), sizeof(count));
 	for_each(weight.begin(), weight.end(), [index = uchar(0), &out](int& value) mutable{
 		if (value != 0) {
@@ -147,7 +147,7 @@ ifstream::pos_type Funcs::readFile(string& filename, ifstream::pos_type pos, vec
 	}
 	in.seekg(pos);
 
-	uchar count = 0;
+	int count = 0;
 	in.read(reinterpret_cast<char*>(&count), sizeof count);
 	//cout << "New count:" << (int)count << endl;
 	int i = 0;
@@ -164,7 +164,7 @@ ifstream::pos_type Funcs::readFile(string& filename, ifstream::pos_type pos, vec
 	//	if (value != 0) {
 	//		cout << "[" << static_cast<char>(index) << "]" << value << endl;
 	//	}
-	//	index++;
+	//	index++;s
 	//});
 
 	int byteCount = 0;
@@ -219,5 +219,4 @@ void Funcs::decode(const Node::pointer& root, const string& message, string& tex
 			}
 		}
 	}
-	cout << text;
 }

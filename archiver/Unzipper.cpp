@@ -7,8 +7,16 @@ void Unzipper:: decompress(string pathOut) {
 	createDir(this->listOfFiles);
 
 	Funcs fun;
+	cout << endl << "Wait, it may take some time:" << endl;
+
 	for (int i = 0; i < this->listOfFiles.size(); i++) {
-		if (isItFile(this->listOfFiles[i])) {
+		int value = i * 100 / (listOfFiles.size() - 1);
+		cout << "\r" << value << "%";
+		if (listOfFiles[i][listOfFiles[i].size() - 1] == 'd') {
+			listOfFiles[i].pop_back();
+		}
+		else{
+			listOfFiles[i].pop_back();
 			this->weight = vector<int>(0x100, 0);
 			this->message = "";
 			pos = fun.readFile(this->pathIn, pos, this->weight, this->message);
@@ -30,6 +38,15 @@ void Unzipper:: decompress(string pathOut) {
 			}
 		}
 	}
+	string name=getName(this->pathIn);
+	name.pop_back();
+	name.pop_back();
+	name.pop_back();
+	name.pop_back();
+	cout << "GOOD JOB!!!" << endl
+		<< "Your " << name
+		<< " is here: " << this->pathOut <<name<< endl;
+	system("pause");
 
 	
 }
